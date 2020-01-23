@@ -19,22 +19,18 @@ IDINTERVALPERR = 90  # 90개의 게시물을 보면 아이디를 체인지 합�
 INPUT_FILE_NAME = "pro1_PatternsforPiratesSewingPDF.csv"
 INPUT_START_LINE = 7797  # pk보다 하나 적게 이어서 시작!!
 OUTPUT_FILE_NAME = "pro2_PatternsforPiratesSewingPDF.csv"
-HOUSE_IMG_CLASS = "sx_07afdf"  # 페이스북은 매일매일 CLASS이름을 바꿔주나봐.. 이것도 체킹해야됨..
-# _3-90 _8o _8s lfloat _ohe img sp_MBH5s5DQrvo_2x sx_62ff0e
-# _3-90 _8o _8s lfloat _ohe img sp_MBH5s5DQrvo_2x sx_62ff0e
+HOUSE_IMG_CLASS = "sx_34dc78"  # 페이스북은 매일매일 CLASS이름을 바꿔주나봐.. 이것도 체킹해야됨..
+# _3-90 _8o _8s lfloat _ohe img sp_f6EkU4HBM56 sx_34dc78
 # class="_3-90 _8o _8s lfloat _ohe img sp_f6EkU4HBM56_2x sx_07afdf"
 EMAIL_LIST = [
     "ypd03008@naver.com",
     "o19941025@gmail.com",
     "tkdwls4152@naver.com",
-    "79099301227",
-
 ]
 PASSWORD_LIST = [
     "Fadud5386!!",
     "dla2068",
     "!girintkdwls4152",
-    "37plgx$Uz",
 ]
 # private Config -------------------------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

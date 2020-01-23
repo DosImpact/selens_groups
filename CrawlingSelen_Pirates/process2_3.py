@@ -16,23 +16,24 @@ import random
 FACEBOOk_URL = "https://www.facebook.com/groups/indiera/members/"
 TIEMINTERVAL = 15
 IDINTERVALPERR = 90  # 90개의 게시물을 보면 아이디를 체인지 합니다.
-INPUT_FILE_NAME = "pro1_PDF_Ellie_MacSewingPattern.csv"
-INPUT_START_LINE = 1890  # pk보다 하나 적게 이어서 시작!!
-OUTPUT_FILE_NAME = "pro2_PDF_Ellie_MacSewingPattern.csv"
+INPUT_FILE_NAME = "pro1_PatternsforPiratesSewingPDF.csv"
+INPUT_START_LINE = 7797  # pk보다 하나 적게 이어서 시작!!
+OUTPUT_FILE_NAME = "pro2_PatternsforPiratesSewingPDF.csv"
 HOUSE_IMG_CLASS = "sx_07afdf"  # 페이스북은 매일매일 CLASS이름을 바꿔주나봐.. 이것도 체킹해야됨..
 # _3-90 _8o _8s lfloat _ohe img sp_MBH5s5DQrvo_2x sx_62ff0e
 # _3-90 _8o _8s lfloat _ohe img sp_MBH5s5DQrvo_2x sx_62ff0e
-#
-
+# class="_3-90 _8o _8s lfloat _ohe img sp_f6EkU4HBM56_2x sx_07afdf"
 EMAIL_LIST = [
-    "79383425299",
-    "79889550421",
-    "79383425299",
+    "79996756602"
+"79183406704",
+"79189607157",
+
 ]
 PASSWORD_LIST = [
-    "vswqL57&&",
-    "8g4q2)WRw",
-    "vswqL57&&",
+"AD88Om5sS",
+"MssxYv^3B",
+"ClM8U(%7#",
+
 ]
 # private Config -------------------------------------------
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -60,7 +61,7 @@ def changeUser():
     global NOWIDPOINTER
     global EMAIL
     global PASSWORD
-    if NOWIDPOINTER >= len(EMAIL_LIST) - 1:
+    if(NOWIDPOINTER >= len(EMAIL_LIST) - 1):
         NOWIDPOINTER = 0
     email = EMAIL_LIST[NOWIDPOINTER]
     password = PASSWORD_LIST[NOWIDPOINTER]
@@ -94,8 +95,7 @@ csvfilerows = csv.writer(csvfile)
 
 
 print(
-    f"cvs href -> profile 수집 시작 , profile 수 : {len(urls) - INPUT_START_LINE }, ID변경간격: {IDINTERVALPERR}"
-)
+    f"cvs href -> profile 수집 시작 , profile 수 : {len(urls) - INPUT_START_LINE }, ID변경간격: {IDINTERVALPERR}")
 # crawl each person-------------------------------------------
 counter = 0
 timeout_counter = 0
@@ -110,8 +110,10 @@ for i in range(INPUT_START_LINE, len(urls) - 1, 1):
                 (By.CSS_SELECTOR, "#profile_timeline_intro_card",)
             )
         )
-        profile = driver.find_element_by_css_selector("#profile_timeline_intro_card")
-        house = profile.find_element_by_css_selector(f"i.{HOUSE_IMG_CLASS} + div")
+        profile = driver.find_element_by_css_selector(
+            "#profile_timeline_intro_card")
+        house = profile.find_element_by_css_selector(
+            f"i.{HOUSE_IMG_CLASS} + div")
         house_text = house.text
         urls[i].extend([house_text])
 
@@ -125,16 +127,17 @@ for i in range(INPUT_START_LINE, len(urls) - 1, 1):
         timeout_counter += 1
         try:
             profile = driver.find_element_by_css_selector(
-                "div#content > div > div.uiHeader"
-            )
+                "div#content > div > div.uiHeader")
         except NoSuchElementException:
-            print("changeUser Blocked", urls[i])
+            print(
+                "changeUser Blocked", urls[i])
             counter = 0
             timeout_counter = 0
             login()
             continue
-        if timeout_counter > 7:
-            print("TIME OUT EXCEPTION  or Need Authed", urls[i])
+        if(timeout_counter > 7):
+            print(
+                "TIME OUT EXCEPTION  or Need Authed", urls[i])
             counter = 0
             timeout_counter = 0
             login()
@@ -146,8 +149,8 @@ for i in range(INPUT_START_LINE, len(urls) - 1, 1):
 
     print(urls[i])
     csvfilerows.writerow(urls[i])
-    # time.sleep(random.randint(10, 50))
-    if counter >= IDINTERVALPERR:
+    #time.sleep(random.randint(10, 50))
+    if(counter >= IDINTERVALPERR):
         counter = 0
         login()
 

@@ -1,6 +1,7 @@
 {
-  "python.pythonPath": "C:\\Anaconda3\\envs\\crawling\\python.exe",
+  "python.pythonPath": "C:\\Users\\Dos\\AppData\\Local\\Continuum\\anaconda3\\envs\\crawling\\python.exe",
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": false,
-  "python.linting.flake8Enabled": true
+  "python.linting.flake8Enabled": true,
+  "python.formatting.provider": "black"
 }
