@@ -1,8 +1,8 @@
 import csv
 from openpyxl import Workbook
 
-INPUT_NAME = "pro2_PDFPatternSales_Promotion.csv"
-OUTPUT_NAME = "pro3_PDFPatternSales_Promotion.xlsx"
+INPUT_NAME = "pro2_SewSweetnessSewingPatterns.csv"
+OUTPUT_NAME = "pro3_SewSweetnessSewingPatterns.xlsx"
 
 f = open(INPUT_NAME, "r", encoding="utf-16")
 rdr = csv.reader(f, delimiter=",")
@@ -23,7 +23,7 @@ for line in rdr:
             name.append("")
         res.append(int(line[0]))
         res.extend(name)
-        #print(res)
+        # print(res)
         write_ws.append(res)
 
     if len(line) >= 3:  # idx,이름,거주지, 외 추가 정보.
@@ -43,7 +43,7 @@ for line in rdr:
         res.extend(name)
         res.append(line[2][0:-3])
         res.extend(plusInfo)
-        #print(res)
+        # print(res)
         try:
             write_ws.append(res)
             pass
